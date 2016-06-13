@@ -1,0 +1,19 @@
+h2 {
+    margin: 0;
+}
+
+.error {color: red}
+
+.feed {
+    border: 1px solid #5f78ab;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.feed .recent-article {
+    border-bottom: 1px solid #5f78ab;
+}
+
+.feed .recent-article:last-child {
+    border-bottom: none;
+}

@@ -1,0 +1,19 @@
+<div class="row feed" data-feed-id="{{ feed.id }}">
+    <div class="col-xs-8">
+        <h2>
+            {{ feed.title }} ({{ feed.getItems.count() }})
+        </h2>
+    </div>
+    <div class="col-xs-4 text-right">
+        <p>Last checked: {{ format_date_time(feed.lastUpdate) }}</p>
+    </div>
+    <div class="col-xs-12">
+        <a href="{{ feed.url }}" title="{{ feed.title }}">{{ feed.url }}</a>
+    </div>
+    <div class="col-xs-12">
+        <h3>Recent articles</h3>
+    </div>
+    <div class="col-xs-12">
+        {{ render(controller('AppBundle:Feed:recentArticles', {feedId: feed.id})) }}
+    </div>
+</div>

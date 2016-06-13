@@ -1,0 +1,14 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% set pageTitle = "Feed list for category <i>" ~ app.request.get('category') ~ "</i>" %}
+{% block body %}
+    <h1>
+        {{ pageTitle|raw }}
+    </h1>
+    {% if feedList is not empty %}
+        {% for feed in feedList %}
+            {% include 'AppBundle:Feed:singleFeed.html.twig' %}
+        {% endfor %}
+    {% else %}
+        <h2 class="error">No feed found for this category</h2>
+    {% endif %}
+{% endblock %}

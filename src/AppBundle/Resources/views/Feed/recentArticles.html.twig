@@ -1,0 +1,13 @@
+{% for recentArticle in recentArticleList %}
+    <div class="row recent-article">
+        <div class="col-xs-8">
+            <h5>{{ recentArticle.title }}</h5>
+            <a href="{{ recentArticle.link }}" title="{{ recentArticle.title }}" target="_blank">
+                {{ recentArticle.link }}
+            </a>
+        </div>
+        <div class="col-xs-4 text-right">
+            Published date: {{ format_date_time(recentArticle.published) }}
+        </div>
+    </div>
+{% endfor %}

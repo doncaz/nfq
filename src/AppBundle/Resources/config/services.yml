@@ -1,0 +1,18 @@
+parameters:
+    feed.factory.class: AppBundle\Model\Feed\FeedFactory
+    feed.service.class: AppBundle\Service\Feed\FeedService
+    feed.processor.sync.class: AppBundle\Sync\Processor\FeedSyncProcessor
+
+services:
+    feed.factory:
+        class: %feed.factory.class%
+
+    feed.service:
+        class: %feed.service.class%
+        arguments: ['@doctrine.orm.entity_manager', '@feed.factory']
+
+    feed.processor.sync:
+        class: %feed.processor.sync.class%
+        arguments: ['@doctrine.orm.entity_manager', '@debril.reader', '@feed.service']
+        calls:
+            - [setLogger, ['@logger']]
